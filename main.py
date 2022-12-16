@@ -133,8 +133,9 @@ async def set_command(channel, parts):
     if new_value < 0:
         new_value = 0
 
-    if new_value > 5:
-        new_value = 5
+    if key == "momentum":
+        if new_value > 6:
+            new_value = 6
 
     CACHE.set(key, new_value)
     await channel.send(f"{key} is now {new_value} (was {original_value})")
